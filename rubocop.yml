@@ -1,0 +1,94 @@
+AllCops:
+  TargetRubyVersion: 2.7
+  DisabledByDefault: true
+  Exclude:
+    - 'node_modules/node-sass/src/libsass/contrib/libsass.spec'
+    - 'node_modules/@prettier/plugin-ruby/src/haml/parser.rb'
+    - "db/**/*"
+    - "tmp/**/*"
+    - "vendor/**/*"
+    - "bin/**/*"
+    - "log/**/*"
+require:
+  - rubocop-rails
+  - rubocop-performance
+  - rubocop-gitlab-security
+Metrics/AbcSize:
+  Enabled: true
+  Exclude:
+    - 'Rakefile'
+    - 'Guardfile'
+    - '**/*.rake'
+    - 'spec/**/*.rb'
+    - '**/*.gemspec'
+    - 'config/**/*.rb'
+    - 'node_modules/**/*.rb'
+    - 'lib/**/*.rb'
+    - 'Gemfile'
+    - 'app/contracts/**/*.rb'
+    - 'app/models/concerns/scopes/**/*.rb'
+Metrics/MethodLength:
+  Max: 15
+  Exclude:
+    - 'Rakefile'
+    - 'Guardfile'
+    - '**/*.rake'
+    - 'spec/**/*.rb'
+    - '**/*.gemspec'
+    - 'config/**/*.rb'
+    - 'node_modules/**/*.rb'
+    - 'lib/**/*.rb'
+    - 'Gemfile'
+    - 'app/contracts/**/*.rb'
+    - 'app/models/concerns/scopes/**/*.rb'
+Rails/OutputSafety:
+  Enabled: true
+  Exclude:
+    - 'app/controllers/admin/users_controller.rb'
+    - 'app/models/transcription.rb'
+    - 'app/models/second_base/transcription.rb'
+Bundler/InsecureProtocolSource:
+  Enabled: true
+Security/Eval:
+  Enabled: true
+Security/JSONLoad:
+  Enabled: true
+Security/MarshalLoad:
+  Enabled: true
+Security/Open:
+  Enabled: true
+  Exclude:
+    - 'config/initializers/init_manifest.rb'
+Security/YAMLLoad:
+  Enabled: true
+GitlabSecurity/DeepMunge:
+  Enabled: true
+GitlabSecurity/JsonSerialization:
+  Enabled: true
+  Exclude:
+    - 'app/services/experiment_services/create.rb'
+    - 'lib/profile_questions_service.rb'
+GitlabSecurity/PublicSend:
+  Enabled: true
+  Exclude:
+    - 'app/controllers/admin/usage_controller.rb'
+    - 'app/controllers/admin/settings_controller.rb'
+    - 'app/controllers/internal_api/v1/admin/settings_controller.rb'
+    - 'app/controllers/internal_api/v1/lessons_controller.rb'
+    - 'app/controllers/user/confirmations_controller.rb'
+    - 'app/services/experiment_services/create.rb'
+    - 'db/secondbase/migrate/20191021100855_fill_rank_name_based_on_courses_name.rb'
+    - 'features/lessons_catalog/lessons_catalog_steps.rb'
+    - 'lib/csv_generator.rb'
+    - 'lib/loud_pages/dashboard_report.rb'
+    - 'spec/cypress/app_commands/factory_bot.rb'
+    - 'spec/models/user_spec.rb'
+    - 'spec/services/customer_services/account_balance/base_spec.rb'
+GitlabSecurity/RedirectToParamsUpdate:
+  Enabled: true
+GitlabSecurity/SendFileParams:
+  Enabled: true
+GitlabSecurity/SqlInjection:
+  Enabled: true
+GitlabSecurity/SystemCommandInjection:
+  Enabled: true
